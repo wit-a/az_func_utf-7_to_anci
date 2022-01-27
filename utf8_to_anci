@@ -1,0 +1,18 @@
+            // Entcodint UTF-8 File to ANCI 
+            
+            // source and dist. path
+            string path_utf8 = @"C:\test_utrf8.csv";
+            string path_anci = @"C:\test_ansi.csv";
+            if (File.Exists(path_utf8)) {
+                StreamReader sr_utf8 = new StreamReader(path_utf8, Encoding.UTF8);
+                StreamWriter sw_anci = new StreamWriter(path_anci, true, Encoding.Latin1);
+                string Line;
+                while((Line = sr_utf8.ReadLine()) != null){
+                    sw_anci.WriteLine(Line);
+                }
+                sr_utf8.Close();
+                sw_anci.Close();
+            }
+            else{
+                Console.Write("the file does not exist, check the path");
+            }
